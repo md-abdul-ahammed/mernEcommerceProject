@@ -74,12 +74,6 @@ function App() {
 
       {isAuthenticated && <UserOptions user={user} />}
 
-      {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path="/process/payment" component={Payment} />
-        </Elements>
-      )}
-
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/product/:id" component={ProductDetails} />
@@ -117,6 +111,11 @@ function App() {
         <ProtectedRoute exact path="/orders" component={MyOrders} />
 
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        {stripeApiKey && (
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <ProtectedRoute exact path="/process/payment" component={Payment} />
+          </Elements>
+        )}
 
         <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
 
