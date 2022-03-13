@@ -9,3 +9,16 @@
   height: 56px;
   border-radius: 100%;
 }
+
+@media screen and (max-width: 800px) {
+  .logoReactNavbar {
+    width: 150% !important;
+  }
+  .nav1,
+  .nav2,
+  .nav3,
+  .nav4 {
+    padding: 4vmax;
+    width: 35%;
+  }
+}

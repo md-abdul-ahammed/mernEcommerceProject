@@ -81,12 +81,12 @@
   font-size: 4vmax;
 }
 
-.youtubeSvgIcon {
-  color: tomato;
+.githubSvgIcon {
+  color: rgb(24 24 24);
 }
 
-.instagramSvgIcon {
-  color: rgb(144, 81, 202);
+.linkedinSvgIcon {
+  color: rgb(37, 87, 162);
 }
 
 @media screen and (max-width: 600px) {
