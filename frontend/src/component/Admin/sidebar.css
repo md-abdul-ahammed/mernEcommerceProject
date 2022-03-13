@@ -39,3 +39,12 @@
 .MuiTypography-root {
   background-color: #fff !important;
 }
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    padding: 2rem 0;
+  }
+  .sidebar a {
+    padding: 1rem 2rem;
+  }
+}

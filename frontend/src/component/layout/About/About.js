@@ -48,7 +48,7 @@ const About = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <LinkedInIcon className="instagramSvgIcon" />
+              <LinkedInIcon className="linkedinSvgIcon" />
             </a>
           </div>
         </div>

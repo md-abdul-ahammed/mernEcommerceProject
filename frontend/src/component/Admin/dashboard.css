@@ -83,6 +83,10 @@
 
   .dashboardContainer {
     border-left: none;
+    padding: 0;
+  }
+  .dashboardContainer > h1 {
+    padding: 0;
   }
 
   .dashboardSummary > div > p {
