@@ -50,7 +50,6 @@ function App() {
 
   async function getStripeApiKey() {
     const { data } = await axios.get("/api/v1/stripeapikey");
-
     setStripeApiKey(data.stripeApiKey);
   }
 
@@ -71,7 +70,6 @@ function App() {
   return (
     <Router>
       <Header />
-
       {isAuthenticated && <UserOptions user={user} />}
 
       <Switch>
@@ -116,9 +114,7 @@ function App() {
             <ProtectedRoute exact path="/process/payment" component={Payment} />
           </Elements>
         )}
-
         <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
-
         <ProtectedRoute
           isAdmin={true}
           exact
@@ -184,7 +180,6 @@ function App() {
           }
         />
       </Switch>
-
       <Footer />
     </Router>
   );
