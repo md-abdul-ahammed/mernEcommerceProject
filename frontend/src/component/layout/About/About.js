@@ -1,46 +1,54 @@
 import React from "react";
 import "./aboutSection.css";
 import { Button, Typography, Avatar } from "@material-ui/core";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 const About = () => {
   const visitInstagram = () => {
-    window.location = "https://instagram.com/meabhisingh";
+    window.location = "https://www.linkedin.com/in/mdabdulahammed/";
   };
   return (
     <div className="aboutSection">
       <div></div>
       <div className="aboutSectionGradient"></div>
       <div className="aboutSectionContainer">
-        <Typography component="h1">About Us</Typography>
+        <Typography component="h1">About Me</Typography>
 
         <div>
           <div>
             <Avatar
               style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src="https://res.cloudinary.com/tripleayt/image/upload/v1631555947/products/jpyibarlaxawvcvqjv5b.png"
-              alt="Founder"
+              src="https://i.imgur.com/guRgqA6.jpg"
+              alt="mdabdulahammed"
             />
-            <Typography>Abhishek Singh</Typography>
+            <Typography>Md Abdul Ahammed</Typography>
             <Button onClick={visitInstagram} color="primary">
-              Visit Instagram
+              Visit Linkedin
             </Button>
             <span>
-              This is a sample wesbite made by @meabhisingh. Only with the
-              purpose to teach MERN Stack on the channel 6 Pack Programmer
+              I am a MERN stack developer. I have one year of experience with
+              the full stack development sector(MERN). Also I have one year of
+              experience with WordPress and Shopify on fiverr. <br />I am ready
+              to work for any company as a full-stack developer or front-end
+              developer.
             </span>
           </div>
           <div className="aboutSectionContainer2">
-            <Typography component="h2">Our Brands</Typography>
+            <Typography component="h2">Important Links</Typography>
             <a
-              href="https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw"
-              target="blank"
+              href="https://github.com/md-abdul-ahammed"
+              target="_blank"
+              rel="noreferrer"
             >
-              <YouTubeIcon className="youtubeSvgIcon" />
+              <GitHubIcon className="githubSvgIcon" />
             </a>
 
-            <a href="https://instagram.com/meabhisingh" target="blank">
-              <InstagramIcon className="instagramSvgIcon" />
+            <a
+              href="https://www.linkedin.com/in/mdabdulahammed/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LinkedInIcon className="instagramSvgIcon" />
             </a>
           </div>
         </div>
