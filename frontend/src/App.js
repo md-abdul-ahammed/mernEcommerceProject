@@ -42,6 +42,7 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
+import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -69,14 +70,9 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
-
-      {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path="/process/payment" component={Payment} />
-        </Elements>
-      )}
 
       <Switch>
         <Route exact path="/" component={Home} />
@@ -174,6 +170,12 @@ function App() {
           isAdmin={true}
           component={ProductReviews}
         />
+        {stripeApiKey && (
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <ProtectedRoute exact path="/process/payment" component={Payment} />
+          </Elements>
+        )}
+
         <Route
           component={
             window.location.pathname === "/process/payment" ? null : NotFound
