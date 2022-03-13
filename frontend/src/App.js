@@ -109,11 +109,6 @@ function App() {
         <ProtectedRoute exact path="/orders" component={MyOrders} />
 
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-        {stripeApiKey && (
-          <Elements stripe={loadStripe(stripeApiKey)}>
-            <ProtectedRoute exact path="/process/payment" component={Payment} />
-          </Elements>
-        )}
         <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
         <ProtectedRoute
           isAdmin={true}
@@ -173,6 +168,11 @@ function App() {
           isAdmin={true}
           component={ProductReviews}
         />
+        {stripeApiKey && (
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <ProtectedRoute exact path="/process/payment" component={Payment} />
+          </Elements>
+        )}
 
         <Route
           component={
