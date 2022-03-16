@@ -25,6 +25,8 @@
 
 - The logging system is done with Node Js. To Register in, user have to give name, email, password and picture. Image hosted by Cloudinary. The password encryption in Node.js using bcryptjs module. The user will be able to confirm the order after logging in. Country and State will dynamically come and select when ordering. And Stripe has been added to the payment system.![enter image description here](https://i.imgur.com/UrLuDbF.png)![enter image description here](https://i.imgur.com/lMXn1eE.png)
   ![enter image description here](https://i.imgur.com/KTgDpgQ.png)
+  ![enter image description here](https://i.imgur.com/4mjIqka.png)
+  ![enter image description here](https://i.imgur.com/5tcSVue.png)
 - There is a page called Account for the user which after logging in can see the help of the menu and its help the user can go to the profile page. From there he can update all his details if he wants. In the menu there is an order page for the user where he can see the complete details of his order.
   ![enter image description here](https://i.imgur.com/R6KUW9u.png)
 
