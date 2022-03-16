@@ -4,7 +4,6 @@ import "./Search.css";
 
 const Search = ({ history }) => {
   const [keyword, setKeyword] = useState("");
-
   const searchSubmitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
@@ -13,7 +12,6 @@ const Search = ({ history }) => {
       history.push("/products");
     }
   };
-
   return (
     <Fragment>
       <MetaData title="Search A Product -- ECOMMERCE" />

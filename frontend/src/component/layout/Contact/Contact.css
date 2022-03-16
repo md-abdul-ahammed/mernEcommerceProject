@@ -7,20 +7,17 @@
   background-color: white;
   position: fixed;
 }
-
 .mailBtn {
   text-decoration: none;
   transform: translateX(-100vw);
   animation: mailBtnAnimation 2s forwards;
 }
-
 .mailBtn > button {
   text-decoration: none;
   font: 200 2vmax "Roboto";
   cursor: url("https://img.icons8.com/color/48/000000/edit--v2.png"), pointer;
   padding: 2vmax;
 }
-
 @keyframes mailBtnAnimation {
   to {
     transform: translateX(0);

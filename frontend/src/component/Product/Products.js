@@ -22,15 +22,11 @@ const categories = [
 
 const Products = ({ match }) => {
   const dispatch = useDispatch();
-
   const alert = useAlert();
-
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 25000]);
   const [category, setCategory] = useState("");
-
   const [ratings, setRatings] = useState(0);
-
   const {
     products,
     loading,
@@ -39,27 +35,21 @@ const Products = ({ match }) => {
     resultPerPage,
     filteredProductsCount,
   } = useSelector((state) => state.products);
-
   const keyword = match.params.keyword;
-
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
-
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
   let count = filteredProductsCount;
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
-
   return (
     <Fragment>
       {loading ? (
@@ -68,14 +58,12 @@ const Products = ({ match }) => {
         <Fragment>
           <MetaData title="PRODUCTS -- ECOMMERCE" />
           <h2 className="productsHeading">Products</h2>
-
           <div className="products">
             {products &&
               products.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
           </div>
-
           <div className="filterBox">
             <Typography>Price</Typography>
             <Slider
@@ -86,7 +74,6 @@ const Products = ({ match }) => {
               min={0}
               max={25000}
             />
-
             <Typography>Categories</Typography>
             <ul className="categoryBox">
               {categories.map((category) => (
@@ -99,7 +86,6 @@ const Products = ({ match }) => {
                 </li>
               ))}
             </ul>
-
             <fieldset>
               <Typography component="legend">Ratings Above</Typography>
               <Slider

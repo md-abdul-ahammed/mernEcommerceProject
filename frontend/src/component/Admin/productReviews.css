@@ -5,7 +5,6 @@
   border-left: 1px solid rgba(0, 0, 0, 0.158);
   height: 100vh;
 }
-
 .productReviewsForm {
   width: 20rem;
   display: flex;
@@ -15,13 +14,11 @@
   padding: 3vmax;
   background-color: white;
 }
-
 .productReviewsFormHeading {
   color: rgba(0, 0, 0, 0.733);
   font: 300 2rem "Roboto";
   text-align: center;
 }
-
 .productReviewsForm > div {
   display: flex;
   width: 100%;
@@ -38,14 +35,12 @@
   font: 300 0.9vmax cursive;
   outline: none;
 }
-
 .productReviewsForm > div > svg {
   position: absolute;
   transform: translateX(1vmax);
   font-size: 1.6vmax;
   color: rgba(0, 0, 0, 0.623);
 }
-
 @media screen and (max-width: 600px) {
   .productReviewsContainer {
     border-left: none;
@@ -55,7 +50,6 @@
     padding: 2.5vmax 5vmax;
     font: 300 1.7vmax cursive;
   }
-
   .productReviewsForm > div > svg {
     font-size: 2.8vmax;
   }

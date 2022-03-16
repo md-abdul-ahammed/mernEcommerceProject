@@ -16,9 +16,7 @@ import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 const NewProduct = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const { loading, error, success } = useSelector((state) => state.newProduct);
-
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
@@ -26,7 +24,6 @@ const NewProduct = ({ history }) => {
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
-
   const categories = [
     "Laptop",
     "Footwear",
@@ -36,57 +33,45 @@ const NewProduct = ({ history }) => {
     "Camera",
     "SmartPhones",
   ];
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     if (success) {
       alert.success("Product Created Successfully");
       history.push("/admin/dashboard");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
   }, [dispatch, alert, error, history, success]);
-
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
-
     const myForm = new FormData();
-
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
-
     images.forEach((image) => {
       myForm.append("images", image);
     });
     dispatch(createProduct(myForm));
   };
-
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
-
     setImages([]);
     setImagesPreview([]);
-
     files.forEach((file) => {
       const reader = new FileReader();
-
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }
       };
-
       reader.readAsDataURL(file);
     });
   };
-
   return (
     <Fragment>
       <MetaData title="Create Product" />
@@ -99,7 +84,6 @@ const NewProduct = ({ history }) => {
             onSubmit={createProductSubmitHandler}
           >
             <h1>Create Product</h1>
-
             <div>
               <SpellcheckIcon />
               <input
@@ -119,10 +103,8 @@ const NewProduct = ({ history }) => {
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
-
             <div>
               <DescriptionIcon />
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -131,7 +113,6 @@ const NewProduct = ({ history }) => {
                 rows="1"
               ></textarea>
             </div>
-
             <div>
               <AccountTreeIcon />
               <select onChange={(e) => setCategory(e.target.value)}>
@@ -143,7 +124,6 @@ const NewProduct = ({ history }) => {
                 ))}
               </select>
             </div>
-
             <div>
               <StorageIcon />
               <input
@@ -153,7 +133,6 @@ const NewProduct = ({ history }) => {
                 onChange={(e) => setStock(e.target.value)}
               />
             </div>
-
             <div id="createProductFormFile">
               <input
                 type="file"
@@ -163,13 +142,11 @@ const NewProduct = ({ history }) => {
                 multiple
               />
             </div>
-
             <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}
             </div>
-
             <Button
               id="createProductBtn"
               type="submit"

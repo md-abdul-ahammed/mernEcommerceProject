@@ -10,16 +10,13 @@ import { useAlert } from "react-alert";
 
 const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
-
   const dispatch = useDispatch();
   const alert = useAlert();
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     dispatch(getOrderDetails(match.params.id));
   }, [dispatch, alert, error, match.params.id]);
   return (
@@ -71,13 +68,11 @@ const OrderDetails = ({ match }) => {
                       : "NOT PAID"}
                   </p>
                 </div>
-
                 <div>
                   <p>Amount:</p>
                   <span>{order.totalPrice && order.totalPrice}</span>
                 </div>
               </div>
-
               <Typography>Order Status</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
@@ -93,7 +88,6 @@ const OrderDetails = ({ match }) => {
                 </div>
               </div>
             </div>
-
             <div className="orderDetailsCartItems">
               <Typography>Order Items:</Typography>
               <div className="orderDetailsCartItemsContainer">

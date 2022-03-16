@@ -15,43 +15,32 @@ import {
   clearErrors,
 } from "../../actions/orderAction";
 import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
-
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
-
   const alert = useAlert();
-
   const { error, orders } = useSelector((state) => state.allOrders);
-
   const { error: deleteError, isDeleted } = useSelector((state) => state.order);
-
   const deleteOrderHandler = (id) => {
     dispatch(deleteOrder(id));
   };
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     if (deleteError) {
       alert.error(deleteError);
       dispatch(clearErrors());
     }
-
     if (isDeleted) {
       alert.success("Order Deleted Successfully");
       history.push("/admin/orders");
       dispatch({ type: DELETE_ORDER_RESET });
     }
-
     dispatch(getAllOrders());
   }, [dispatch, alert, error, deleteError, history, isDeleted]);
-
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-
     {
       field: "status",
       headerName: "Status",
@@ -70,7 +59,6 @@ const OrderList = ({ history }) => {
       minWidth: 150,
       flex: 0.4,
     },
-
     {
       field: "amount",
       headerName: "Amount",
@@ -78,7 +66,6 @@ const OrderList = ({ history }) => {
       minWidth: 270,
       flex: 0.5,
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -92,7 +79,6 @@ const OrderList = ({ history }) => {
             <Link to={`/admin/order/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
-
             <Button
               onClick={() =>
                 deleteOrderHandler(params.getValue(params.id, "id"))
@@ -105,9 +91,7 @@ const OrderList = ({ history }) => {
       },
     },
   ];
-
   const rows = [];
-
   orders &&
     orders.forEach((item) => {
       rows.push({
@@ -117,7 +101,6 @@ const OrderList = ({ history }) => {
         status: item.orderStatus,
       });
     });
-
   return (
     <Fragment>
       <MetaData title={`ALL ORDERS - Admin`} />
@@ -126,7 +109,6 @@ const OrderList = ({ history }) => {
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL ORDERS</h1>
-
           <DataGrid
             rows={rows}
             columns={columns}

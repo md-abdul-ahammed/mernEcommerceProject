@@ -13,7 +13,6 @@ const About = () => {
       <div className="aboutSectionGradient"></div>
       <div className="aboutSectionContainer">
         <Typography component="h1">About Me</Typography>
-
         <div>
           <div>
             <Avatar
@@ -42,7 +41,6 @@ const About = () => {
             >
               <GitHubIcon className="githubSvgIcon" />
             </a>
-
             <a
               href="https://www.linkedin.com/in/mdabdulahammed/"
               target="_blank"

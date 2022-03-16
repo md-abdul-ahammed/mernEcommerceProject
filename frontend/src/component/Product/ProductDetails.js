@@ -25,80 +25,62 @@ import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
   );
-
   const options = {
     size: "large",
     value: product.ratings,
     readOnly: true,
     precision: 0.5,
   };
-
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-
   const increaseQuantity = () => {
     if (product.Stock <= quantity) return;
-
     const qty = quantity + 1;
     setQuantity(qty);
   };
-
   const decreaseQuantity = () => {
     if (1 >= quantity) return;
-
     const qty = quantity - 1;
     setQuantity(qty);
   };
-
   const addToCartHandler = () => {
     dispatch(addItemsToCart(match.params.id, quantity));
     alert.success("Item Added To Cart");
   };
-
   const submitReviewToggle = () => {
     open ? setOpen(false) : setOpen(true);
   };
-
   const reviewSubmitHandler = () => {
     const myForm = new FormData();
-
     myForm.set("rating", rating);
     myForm.set("comment", comment);
     myForm.set("productId", match.params.id);
-
     dispatch(newReview(myForm));
-
     setOpen(false);
   };
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     if (reviewError) {
       alert.error(reviewError);
       dispatch(clearErrors());
     }
-
     if (success) {
       alert.success("Review Submitted Successfully");
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(match.params.id));
   }, [dispatch, match.params.id, error, alert, reviewError, success]);
-
   return (
     <Fragment>
       {loading ? (
@@ -120,7 +102,6 @@ const ProductDetails = ({ match }) => {
                   ))}
               </Carousel>
             </div>
-
             <div>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
@@ -148,7 +129,6 @@ const ProductDetails = ({ match }) => {
                     Add to Cart
                   </button>
                 </div>
-
                 <p>
                   Status:
                   <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
@@ -156,19 +136,15 @@ const ProductDetails = ({ match }) => {
                   </b>
                 </p>
               </div>
-
               <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
               </div>
-
               <button onClick={submitReviewToggle} className="submitReview">
                 Submit Review
               </button>
             </div>
           </div>
-
           <h3 className="reviewsHeading">REVIEWS</h3>
-
           <Dialog
             aria-labelledby="simple-dialog-title"
             open={open}
@@ -181,7 +157,6 @@ const ProductDetails = ({ match }) => {
                 value={rating}
                 size="large"
               />
-
               <textarea
                 className="submitDialogTextArea"
                 cols="30"
@@ -199,7 +174,6 @@ const ProductDetails = ({ match }) => {
               </Button>
             </DialogActions>
           </Dialog>
-
           {product.reviews && product.reviews[0] ? (
             <div className="reviews">
               {product.reviews &&

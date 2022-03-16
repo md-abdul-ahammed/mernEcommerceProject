@@ -10,7 +10,6 @@
   top: 0%;
   left: 0;
 }
-
 .searchBox > input[type="text"] {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
   background-color: white;
@@ -24,7 +23,6 @@
   box-sizing: border-box;
   height: 8%;
 }
-
 .searchBox > input[type="submit"] {
   height: 8%;
   border-radius: 0%;
@@ -37,11 +35,9 @@
   color: white;
   transition: all 0.5s;
 }
-
 .searchBox > input[type="submit"]:hover {
   background-color: rgb(55, 97, 214);
 }
-
 @media screen and (max-width: 600px) {
   .searchBox > input[type="text"] {
     width: 100%;

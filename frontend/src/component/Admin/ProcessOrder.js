@@ -15,26 +15,18 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { Button } from "@material-ui/core";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./processOrder.css";
-
 const ProcessOrder = ({ history, match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
-
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
-
     const myForm = new FormData();
-
     myForm.set("status", status);
-
     dispatch(updateOrder(match.params.id, myForm));
   };
-
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const [status, setStatus] = useState("");
-
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -48,10 +40,8 @@ const ProcessOrder = ({ history, match }) => {
       alert.success("Order Updated Successfully");
       dispatch({ type: UPDATE_ORDER_RESET });
     }
-
     dispatch(getOrderDetails(match.params.id));
   }, [dispatch, alert, error, match.params.id, isUpdated, updateError]);
-
   return (
     <Fragment>
       <MetaData title="Process Order" />
@@ -89,7 +79,6 @@ const ProcessOrder = ({ history, match }) => {
                       </span>
                     </div>
                   </div>
-
                   <Typography>Payment</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
@@ -107,13 +96,11 @@ const ProcessOrder = ({ history, match }) => {
                           : "NOT PAID"}
                       </p>
                     </div>
-
                     <div>
                       <p>Amount:</p>
                       <span>{order.totalPrice && order.totalPrice}</span>
                     </div>
                   </div>
-
                   <Typography>Order Status</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
@@ -159,7 +146,6 @@ const ProcessOrder = ({ history, match }) => {
                   onSubmit={updateOrderSubmitHandler}
                 >
                   <h1>Process Order</h1>
-
                   <div>
                     <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
@@ -167,13 +153,11 @@ const ProcessOrder = ({ history, match }) => {
                       {order.orderStatus === "Processing" && (
                         <option value="Shipped">Shipped</option>
                       )}
-
                       {order.orderStatus === "Shipped" && (
                         <option value="Delivered">Delivered</option>
                       )}
                     </select>
                   </div>
-
                   <Button
                     id="createProductBtn"
                     type="submit"

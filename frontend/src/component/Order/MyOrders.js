@@ -12,15 +12,11 @@ import LaunchIcon from "@material-ui/icons/Launch";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
-
   const alert = useAlert();
-
   const { loading, error, orders } = useSelector((state) => state.myOrders);
   const { user } = useSelector((state) => state.user);
-
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-
     {
       field: "status",
       headerName: "Status",
@@ -39,7 +35,6 @@ const MyOrders = () => {
       minWidth: 150,
       flex: 0.3,
     },
-
     {
       field: "amount",
       headerName: "Amount",
@@ -47,7 +42,6 @@ const MyOrders = () => {
       minWidth: 270,
       flex: 0.5,
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -65,7 +59,6 @@ const MyOrders = () => {
     },
   ];
   const rows = [];
-
   orders &&
     orders.forEach((item, index) => {
       rows.push({
@@ -75,20 +68,16 @@ const MyOrders = () => {
         amount: item.totalPrice,
       });
     });
-
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     dispatch(myOrders());
   }, [dispatch, alert, error]);
-
   return (
     <Fragment>
       <MetaData title={`${user.name} - Orders`} />
-
       {loading ? (
         <Loader />
       ) : (
@@ -101,7 +90,6 @@ const MyOrders = () => {
             className="myOrdersTable"
             autoHeight
           />
-
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
       )}

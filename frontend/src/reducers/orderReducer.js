@@ -29,13 +29,11 @@ export const newOrderReducer = (state = {}, action) => {
         ...state,
         loading: true,
       };
-
     case CREATE_ORDER_SUCCESS:
       return {
         loading: false,
         order: action.payload,
       };
-
     case CREATE_ORDER_FAIL:
       return {
         loading: false,
@@ -46,25 +44,21 @@ export const newOrderReducer = (state = {}, action) => {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
 };
-
 export const myOrdersReducer = (state = { orders: [] }, action) => {
   switch (action.type) {
     case MY_ORDERS_REQUEST:
       return {
         loading: true,
       };
-
     case MY_ORDERS_SUCCESS:
       return {
         loading: false,
         orders: action.payload,
       };
-
     case MY_ORDERS_FAIL:
       return {
         loading: false,
@@ -75,7 +69,6 @@ export const myOrdersReducer = (state = { orders: [] }, action) => {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -87,13 +80,11 @@ export const allOrdersReducer = (state = { orders: [] }, action) => {
       return {
         loading: true,
       };
-
     case ALL_ORDERS_SUCCESS:
       return {
         loading: false,
         orders: action.payload,
       };
-
     case ALL_ORDERS_FAIL:
       return {
         loading: false,
@@ -104,7 +95,6 @@ export const allOrdersReducer = (state = { orders: [] }, action) => {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -118,21 +108,18 @@ export const orderReducer = (state = {}, action) => {
         ...state,
         loading: true,
       };
-
     case UPDATE_ORDER_SUCCESS:
       return {
         ...state,
         loading: false,
         isUpdated: action.payload,
       };
-
     case DELETE_ORDER_SUCCESS:
       return {
         ...state,
         loading: false,
         isDeleted: action.payload,
       };
-
     case UPDATE_ORDER_FAIL:
     case DELETE_ORDER_FAIL:
       return {
@@ -145,7 +132,6 @@ export const orderReducer = (state = {}, action) => {
         ...state,
         isUpdated: false,
       };
-
     case DELETE_ORDER_RESET:
       return {
         ...state,
@@ -156,7 +142,6 @@ export const orderReducer = (state = {}, action) => {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }
@@ -168,13 +153,11 @@ export const orderDetailsReducer = (state = { order: {} }, action) => {
       return {
         loading: true,
       };
-
     case ORDER_DETAILS_SUCCESS:
       return {
         loading: false,
         order: action.payload,
       };
-
     case ORDER_DETAILS_FAIL:
       return {
         loading: false,
@@ -185,7 +168,6 @@ export const orderDetailsReducer = (state = { order: {} }, action) => {
         ...state,
         error: null,
       };
-
     default:
       return state;
   }

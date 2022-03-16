@@ -4,7 +4,6 @@
   flex-direction: column;
   padding: 4rem 0;
 }
-
 .sidebar > a:first-child {
   padding: 0;
 }
@@ -12,7 +11,6 @@
   width: 100%;
   transition: all 0.5s;
 }
-
 .sidebar > a > img:hover {
   filter: drop-shadow(0 0 10px tomato);
 }
@@ -27,7 +25,6 @@
   color: tomato;
   transform: scale(1.1);
 }
-
 .sidebar a > P {
   display: flex;
   align-items: center;
@@ -35,11 +32,9 @@
 .sidebar a > p > svg {
   margin-right: 0.5rem;
 }
-
 .MuiTypography-root {
   background-color: #fff !important;
 }
-
 @media screen and (max-width: 600px) {
   .sidebar {
     padding: 2rem 0;

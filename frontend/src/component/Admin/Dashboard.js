@@ -12,34 +12,26 @@ import MetaData from "../layout/MetaData";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-
   const { products } = useSelector((state) => state.products);
-
   const { orders } = useSelector((state) => state.allOrders);
-
   const { users } = useSelector((state) => state.allUsers);
-
   let outOfStock = 0;
-
   products &&
     products.forEach((item) => {
       if (item.Stock === 0) {
         outOfStock += 1;
       }
     });
-
   useEffect(() => {
     dispatch(getAdminProduct());
     dispatch(getAllOrders());
     dispatch(getAllUsers());
   }, [dispatch]);
-
   let totalAmount = 0;
   orders &&
     orders.forEach((item) => {
       totalAmount += item.totalPrice;
     });
-
   const lineState = {
     labels: ["Initial Amount", "Amount Earned"],
     datasets: [
@@ -51,7 +43,6 @@ const Dashboard = () => {
       },
     ],
   };
-
   const doughnutState = {
     labels: ["Out of Stock", "InStock"],
     datasets: [
@@ -62,7 +53,6 @@ const Dashboard = () => {
       },
     ],
   };
-
   return (
     <div className="dashboard">
       <MetaData title="Dashboard - Admin Panel" />
@@ -92,7 +82,6 @@ const Dashboard = () => {
             </Link>
           </div>
         </div>
-
         <div className="lineChart">
           <Line data={lineState} />
         </div>

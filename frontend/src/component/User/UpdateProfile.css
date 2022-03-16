@@ -10,7 +10,6 @@
   top: 0%;
   left: 0;
 }
-
 .updateProfileBox {
   background-color: white;
   width: 25vw;
@@ -18,7 +17,6 @@
   box-sizing: border-box;
   overflow: hidden;
 }
-
 .updateProfileHeading {
   text-align: center;
   color: rgba(0, 0, 0, 0.664);
@@ -28,7 +26,6 @@
   width: 50%;
   margin: auto;
 }
-
 .updateProfileForm {
   display: flex;
   flex-direction: column;
@@ -39,13 +36,11 @@
   height: 70%;
   transition: all 0.5s;
 }
-
 .updateProfileForm > div {
   display: flex;
   width: 100%;
   align-items: center;
 }
-
 .updateProfileForm > div > input {
   padding: 1vmax 4vmax;
   padding-right: 1vmax;
@@ -56,14 +51,12 @@
   font: 300 0.9vmax cursive;
   outline: none;
 }
-
 .updateProfileForm > div > svg {
   position: absolute;
   transform: translateX(1vmax);
   font-size: 1.6vmax;
   color: rgba(0, 0, 0, 0.623);
 }
-
 #updateProfileImage > img {
   width: 3vmax;
   border-radius: 100%;
@@ -73,7 +66,6 @@
   display: flex;
   padding: 0%;
 }
-
 #updateProfileImage > input::file-selector-button {
   cursor: pointer;
   width: 100%;
@@ -87,11 +79,9 @@
   color: rgba(0, 0, 0, 0.623);
   background-color: rgb(255, 255, 255);
 }
-
 #updateProfileImage > input::file-selector-button:hover {
   background-color: rgb(235, 235, 235);
 }
-
 .updateProfileBtn {
   border: none;
   background-color: tomato;
@@ -105,11 +95,9 @@
   outline: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
 }
-
 .updateProfileBtn:hover {
   background-color: rgb(179, 66, 46);
 }
-
 @media screen and (max-width: 600px) {
   .updateProfileContainer {
     background-color: white;
@@ -118,30 +106,24 @@
     width: 100vw;
     height: 95vh;
   }
-
   .updateProfileForm {
     padding: 5vmax;
   }
-
   .updateProfileForm > div > input {
     padding: 2.5vmax 5vmax;
     font: 300 1.7vmax cursive;
   }
-
   .updateProfileForm > div > svg {
     font-size: 2.8vmax;
   }
-
   #updateProfileImage > img {
     width: 8vmax;
     border-radius: 100%;
   }
-
   #updateProfileImage > input::file-selector-button {
     height: 7vh;
     font: 400 1.8vmax cursive;
   }
-
   .updateProfileBtn {
     font: 300 1.9vmax "Roboto";
     padding: 1.8vmax;

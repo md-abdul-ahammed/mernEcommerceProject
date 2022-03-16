@@ -25,7 +25,6 @@
   text-decoration: none;
   margin: 2vmax;
 }
-
 @media screen and (max-width: 600px) {
   .PageNotFound > a {
     padding: 3vw 6vw;

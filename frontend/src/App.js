@@ -6,68 +6,142 @@ import WebFont from "webfontloader";
 import React from "react";
 import Footer from "./component/layout/Footer/Footer";
 import Home from "./component/Home/Home";
-import ProductDetails from "./component/Product/ProductDetails";
-import Products from "./component/Product/Products";
 import Search from "./component/Product/Search";
-import LoginSignUp from "./component/User/LoginSignUp";
 import store from "./store";
 import { loadUser } from "./actions/userAction";
-import UserOptions from "./component/layout/Header/UserOptions";
 import { useSelector } from "react-redux";
-import Profile from "./component/User/Profile";
-import ProtectedRoute from "./component/Route/ProtectedRoute";
-import UpdateProfile from "./component/User/UpdateProfile";
-import UpdatePassword from "./component/User/UpdatePassword";
-import ForgotPassword from "./component/User/ForgotPassword";
-import ResetPassword from "./component/User/ResetPassword";
-import Cart from "./component/Cart/Cart";
-import Shipping from "./component/Cart/Shipping";
-import ConfirmOrder from "./component/Cart/ConfirmOrder";
-import axios from "axios";
-import Payment from "./component/Cart/Payment";
-import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import OrderSuccess from "./component/Cart/OrderSuccess";
-import MyOrders from "./component/Order/MyOrders";
-import OrderDetails from "./component/Order/OrderDetails";
-import Dashboard from "./component/Admin/Dashboard.js";
-import ProductList from "./component/Admin/ProductList.js";
-import NewProduct from "./component/Admin/NewProduct";
-import UpdateProduct from "./component/Admin/UpdateProduct";
-import OrderList from "./component/Admin/OrderList";
-import ProcessOrder from "./component/Admin/ProcessOrder";
-import UsersList from "./component/Admin/UsersList";
-import UpdateUser from "./component/Admin/UpdateUser";
-import ProductReviews from "./component/Admin/ProductReviews";
+import { Elements } from "@stripe/react-stripe-js";
+import axios from "axios";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
 import ScrollToTop from "./component/ScrollToTop";
+import Loadable from "react-loadable";
+import Loader from "./component/layout/Loader/Loader";
+
+const ProductDetails = Loadable({
+  loader: () => import("./component/Product/ProductDetails"),
+  loading: () => <Loader />,
+});
+const Products = Loadable({
+  loader: () => import("./component/Product/Products"),
+  loading: () => <Loader />,
+});
+const LoginSignUp = Loadable({
+  loader: () => import("./component/User/LoginSignUp"),
+  loading: () => <Loader />,
+});
+const UserOptions = Loadable({
+  loader: () => import("./component/layout/Header/UserOptions"),
+  loading: () => <Loader />,
+});
+const Profile = Loadable({
+  loader: () => import("./component/User/Profile"),
+  loading: () => <Loader />,
+});
+const ProtectedRoute = Loadable({
+  loader: () => import("./component/Route/ProtectedRoute"),
+  loading: () => <Loader />,
+});
+const UpdateProfile = Loadable({
+  loader: () => import("./component/User/UpdateProfile"),
+  loading: () => <Loader />,
+});
+const UpdatePassword = Loadable({
+  loader: () => import("./component/User/UpdatePassword"),
+  loading: () => <Loader />,
+});
+const ForgotPassword = Loadable({
+  loader: () => import("./component/User/ForgotPassword"),
+  loading: () => <Loader />,
+});
+const ResetPassword = Loadable({
+  loader: () => import("./component/User/ResetPassword"),
+  loading: () => <Loader />,
+});
+const Cart = Loadable({
+  loader: () => import("./component/Cart/Cart"),
+  loading: () => <Loader />,
+});
+const Shipping = Loadable({
+  loader: () => import("./component/Cart/Shipping"),
+  loading: () => <Loader />,
+});
+const ConfirmOrder = Loadable({
+  loader: () => import("./component/Cart/ConfirmOrder"),
+  loading: () => <Loader />,
+});
+const Payment = Loadable({
+  loader: () => import("./component/Cart/Payment"),
+  loading: () => <Loader />,
+});
+const OrderSuccess = Loadable({
+  loader: () => import("./component/Cart/OrderSuccess"),
+  loading: () => <Loader />,
+});
+const MyOrders = Loadable({
+  loader: () => import("./component/Order/MyOrders"),
+  loading: () => <Loader />,
+});
+const OrderDetails = Loadable({
+  loader: () => import("./component/Order/OrderDetails"),
+  loading: () => <Loader />,
+});
+const Dashboard = Loadable({
+  loader: () => import("./component/Admin/Dashboard.js"),
+  loading: () => <Loader />,
+});
+const ProductList = Loadable({
+  loader: () => import("./component/Admin/ProductList.js"),
+  loading: () => <Loader />,
+});
+const NewProduct = Loadable({
+  loader: () => import("./component/Admin/NewProduct"),
+  loading: () => <Loader />,
+});
+const UpdateProduct = Loadable({
+  loader: () => import("./component/Admin/UpdateProduct"),
+  loading: () => <Loader />,
+});
+const OrderList = Loadable({
+  loader: () => import("./component/Admin/OrderList"),
+  loading: () => <Loader />,
+});
+const ProcessOrder = Loadable({
+  loader: () => import("./component/Admin/ProcessOrder"),
+  loading: () => <Loader />,
+});
+const UsersList = Loadable({
+  loader: () => import("./component/Admin/UsersList"),
+  loading: () => <Loader />,
+});
+const UpdateUser = Loadable({
+  loader: () => import("./component/Admin/UpdateUser"),
+  loading: () => <Loader />,
+});
+const ProductReviews = Loadable({
+  loader: () => import("./component/Admin/ProductReviews"),
+  loading: () => <Loader />,
+});
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-
   const [stripeApiKey, setStripeApiKey] = useState("");
-
   async function getStripeApiKey() {
     const { data } = await axios.get("/api/v1/stripeapikey");
     setStripeApiKey(data.stripeApiKey);
   }
-
   useEffect(() => {
     WebFont.load({
       google: {
         families: ["Roboto", "Droid Sans", "Chilanka"],
       },
     });
-
     store.dispatch(loadUser());
-
     getStripeApiKey();
   }, []);
-
   window.addEventListener("contextmenu", (e) => e.preventDefault());
-
   return (
     <Router>
       <ScrollToTop />
@@ -83,37 +157,23 @@ function App() {
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/:keyword" component={Products} />
-
         <Route exact path="/search" component={Search} />
-
         <Route exact path="/contact" component={Contact} />
-
         <Route exact path="/about" component={About} />
-
         <ProtectedRoute exact path="/account" component={Profile} />
-
         <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
-
         <ProtectedRoute
           exact
           path="/password/update"
           component={UpdatePassword}
         />
-
         <Route exact path="/password/forgot" component={ForgotPassword} />
-
         <Route exact path="/password/reset/:token" component={ResetPassword} />
-
         <Route exact path="/login" component={LoginSignUp} />
-
         <Route exact path="/cart" component={Cart} />
-
         <ProtectedRoute exact path="/shipping" component={Shipping} />
-
         <ProtectedRoute exact path="/success" component={OrderSuccess} />
-
         <ProtectedRoute exact path="/orders" component={MyOrders} />
-
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
         <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
         <ProtectedRoute
@@ -147,7 +207,6 @@ function App() {
           isAdmin={true}
           component={OrderList}
         />
-
         <ProtectedRoute
           exact
           path="/admin/order/:id"
@@ -160,21 +219,18 @@ function App() {
           isAdmin={true}
           component={UsersList}
         />
-
         <ProtectedRoute
           exact
           path="/admin/user/:id"
           isAdmin={true}
           component={UpdateUser}
         />
-
         <ProtectedRoute
           exact
           path="/admin/reviews"
           isAdmin={true}
           component={ProductReviews}
         />
-
         <Route
           exact
           component={

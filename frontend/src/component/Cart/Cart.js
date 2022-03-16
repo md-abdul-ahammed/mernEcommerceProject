@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 const Cart = ({ history }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
-
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
     if (stock <= quantity) {
@@ -18,7 +17,6 @@ const Cart = ({ history }) => {
     }
     dispatch(addItemsToCart(id, newQty));
   };
-
   const decreaseQuantity = (id, quantity) => {
     const newQty = quantity - 1;
     if (1 >= quantity) {
@@ -26,15 +24,12 @@ const Cart = ({ history }) => {
     }
     dispatch(addItemsToCart(id, newQty));
   };
-
   const deleteCartItems = (id) => {
     dispatch(removeItemsFromCart(id));
   };
-
   const checkoutHandler = () => {
     history.push("/login?redirect=shipping");
   };
-
   return (
     <Fragment>
       {cartItems.length === 0 ? (
@@ -52,7 +47,6 @@ const Cart = ({ history }) => {
               <p>Quantity</p>
               <p>Subtotal</p>
             </div>
-
             {cartItems &&
               cartItems.map((item) => (
                 <div className="cartContainer" key={item.product}>
@@ -83,7 +77,6 @@ const Cart = ({ history }) => {
                   }`}</p>
                 </div>
               ))}
-
             <div className="cartGrossProfit">
               <div></div>
               <div className="cartGrossProfitBox">

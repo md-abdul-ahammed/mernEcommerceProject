@@ -50,7 +50,6 @@ export const productsReducer = (state = { products: [] }, action) => {
         resultPerPage: action.payload.resultPerPage,
         filteredProductsCount: action.payload.filteredProductsCount,
       };
-
     case ADMIN_PRODUCT_SUCCESS:
       return {
         loading: false,
@@ -62,7 +61,6 @@ export const productsReducer = (state = { products: [] }, action) => {
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,
@@ -121,7 +119,6 @@ export const productReducer = (state = {}, action) => {
         loading: false,
         isDeleted: action.payload,
       };
-
     case UPDATE_PRODUCT_SUCCESS:
       return {
         ...state,
@@ -172,7 +169,6 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,
@@ -234,7 +230,6 @@ export const productReviewsReducer = (state = { reviews: [] }, action) => {
         loading: false,
         error: action.payload,
       };
-
     case CLEAR_ERRORS:
       return {
         ...state,

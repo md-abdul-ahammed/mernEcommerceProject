@@ -1,19 +1,20 @@
 ## **A Full Funtional eCommerce Website.**
 
-> **N.B. :** **Please wait a bit (working a little slow to deploy in Heroku. It may take 2-3 minutes to see the site for the first time)**
+> **N.B. :** `**Please wait a little bit to see the live site(working a little slow to deploy in Heroku. It may take sometimes 2-3 minutes to see the site for the first time)**`
 
 **Live Site Link:** [https://my-full-ecommerce-mern-project.herokuapp.com/](https://my-full-ecommerce-mern-project.herokuapp.com/)
 
 **Use this email and password to login as an admin:**
 
-**_email_** : admin@admin.com
-**password**: 12345678
+> **_email_** : admin@admin.com
 
-**_All Features are describe below:_**
+> **password**: 12345678
+
+## **_All Features are describe below:_**
 
 **1**. **Before Login:**
 
-- Before logging in to the site, the user will be able to see only 8 products on the home page of the site. If you go to the products page, you will see the first 8 products at the beginning. Pagination system has been added so that if you go to the next page you will see the next 8 products and this will continue. And if you do not have more than 8 products, you will not be able to see the pagination option. For pagination system I used react-js-pagination npm package.![enter image description here](https://i.imgur.com/pKXQ5WQ.png)
+- Before logging in to the site, the user will be able to see only 8 products on the home page of the site. If user go to the products page, will see the first 8 products at the beginning. Pagination system has been added so that if user go to the next page you will see the next 8 products and this will continue. And if user do not have more than 8 products, user will not be able to see the pagination option. For pagination system I used react-js-pagination npm package.![enter image description here](https://i.imgur.com/pKXQ5WQ.png)
   ![enter image description here](https://i.imgur.com/7Qx8GnM.png)
 - Filtering system has been added to the products page. Three types of filtering systems have been added here. The first is to filter by price. The second is filtering by category. The third is filtering in the form of product ratings. Will update all realtime. Material UI has been used for filtering sliders.![enter image description here](https://i.imgur.com/gRDX02C.png)
 

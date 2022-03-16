@@ -17,17 +17,14 @@ const Shipping = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const { shippingInfo } = useSelector((state) => state.cart);
-
   const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.city);
   const [state, setState] = useState(shippingInfo.state);
   const [country, setCountry] = useState(shippingInfo.country);
   const [pinCode, setPinCode] = useState(shippingInfo.pinCode);
   const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
-
   const shippingSubmit = (e) => {
     e.preventDefault();
-
     if (phoneNo.length < 10 || phoneNo.length > 10) {
       alert.error("Phone Number should be 10 digits Long");
       return;
@@ -37,17 +34,13 @@ const Shipping = ({ history }) => {
     );
     history.push("/order/confirm");
   };
-
   return (
     <Fragment>
       <MetaData title="Shipping Details" />
-
       <CheckoutSteps activeStep={0} />
-
       <div className="shippingContainer">
         <div className="shippingBox">
           <h2 className="shippingHeading">Shipping Details</h2>
-
           <form
             className="shippingForm"
             encType="multipart/form-data"
@@ -63,7 +56,6 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-
             <div>
               <LocationCityIcon />
               <input
@@ -74,7 +66,6 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setCity(e.target.value)}
               />
             </div>
-
             <div>
               <PinDropIcon />
               <input
@@ -85,7 +76,6 @@ const Shipping = ({ history }) => {
                 onChange={(e) => setPinCode(e.target.value)}
               />
             </div>
-
             <div>
               <PhoneIcon />
               <input
@@ -97,10 +87,8 @@ const Shipping = ({ history }) => {
                 size="10"
               />
             </div>
-
             <div>
               <PublicIcon />
-
               <select
                 required
                 value={country}
@@ -115,11 +103,9 @@ const Shipping = ({ history }) => {
                   ))}
               </select>
             </div>
-
             {country && (
               <div>
                 <TransferWithinAStationIcon />
-
                 <select
                   required
                   value={state}
@@ -135,7 +121,6 @@ const Shipping = ({ history }) => {
                 </select>
               </div>
             )}
-
             <input
               type="submit"
               value="Continue"
