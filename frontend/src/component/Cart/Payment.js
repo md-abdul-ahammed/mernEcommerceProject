@@ -47,9 +47,7 @@ const Payment = ({ history }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     payBtn.current.disabled = true;
-
     try {
       const config = {
         headers: {
@@ -61,11 +59,8 @@ const Payment = ({ history }) => {
         paymentData,
         config
       );
-
       const client_secret = data.client_secret;
-
       if (!stripe || !elements) return;
-
       const result = await stripe.confirmCardPayment(client_secret, {
         payment_method: {
           card: elements.getElement(CardNumberElement),
@@ -82,10 +77,8 @@ const Payment = ({ history }) => {
           },
         },
       });
-
       if (result.error) {
         payBtn.current.disabled = false;
-
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
