@@ -19,6 +19,9 @@ import NotFound from "./component/layout/Not Found/NotFound";
 import ScrollToTop from "./component/ScrollToTop";
 import Loadable from "react-loadable";
 import Loader from "./component/layout/Loader/Loader";
+import NewProduct from "./component/Admin/NewProduct";
+import ConfirmOrder from "./component/Cart/ConfirmOrder";
+import Dashboard from "./component/Admin/Dashboard.js";
 
 const ProductDetails = Loadable({
   loader: () => import("./component/Product/ProductDetails"),
@@ -68,10 +71,6 @@ const Shipping = Loadable({
   loader: () => import("./component/Cart/Shipping"),
   loading: () => <Loader />,
 });
-const ConfirmOrder = Loadable({
-  loader: () => import("./component/Cart/ConfirmOrder"),
-  loading: () => <Loader />,
-});
 const Payment = Loadable({
   loader: () => import("./component/Cart/Payment"),
   loading: () => <Loader />,
@@ -88,16 +87,8 @@ const OrderDetails = Loadable({
   loader: () => import("./component/Order/OrderDetails"),
   loading: () => <Loader />,
 });
-const Dashboard = Loadable({
-  loader: () => import("./component/Admin/Dashboard.js"),
-  loading: () => <Loader />,
-});
 const ProductList = Loadable({
   loader: () => import("./component/Admin/ProductList.js"),
-  loading: () => <Loader />,
-});
-const NewProduct = Loadable({
-  loader: () => import("./component/Admin/NewProduct"),
   loading: () => <Loader />,
 });
 const UpdateProduct = Loadable({
