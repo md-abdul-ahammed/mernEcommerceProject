@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+## **A Full Funtional eCommerce Website.**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **N.B. :** `**Please wait a little bit to see the live site(working a little slow to deploy in Heroku. It may take sometimes 2-3 minutes to see the site for the first time)**`
 
-## Available Scripts
+**Live Site Link:** [https://my-full-ecommerce-mern-project.herokuapp.com/](https://my-full-ecommerce-mern-project.herokuapp.com/)
 
-In the project directory, you can run:
+**Use this email and password to login as an admin:**
 
-### `npm start`
+> **_email_** : admin@admin.com
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> **password**: 12345678
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## **_All Features are describe below:_**
 
-### `npm test`
+**1**. **Before Login:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Before logging in to the site, the user will be able to see only 8 products on the home page of the site. If user go to the products page, will see the first 8 products at the beginning. Pagination system has been added so that if user go to the next page you will see the next 8 products and this will continue. And if user do not have more than 8 products, user will not be able to see the pagination option. For pagination system I used react-js-pagination npm package.![enter image description here](https://i.imgur.com/pKXQ5WQ.png)
+  ![enter image description here](https://i.imgur.com/7Qx8GnM.png)
+- Filtering system has been added to the products page. Three types of filtering systems have been added here. The first is to filter by price. The second is filtering by category. The third is filtering in the form of product ratings. Will update all realtime. Material UI has been used for filtering sliders.![enter image description here](https://i.imgur.com/gRDX02C.png)
 
-### `npm run build`
+- Users can add their product in cart without logging. By going to the cart page, the products of the cart can increase the quantity, reduce the product and remove the product. The cart system has been used with Redux and local storage has been used here. The user must log in to checkout the product or else he will not be able to get the checkout. The system has been added with the help of Protected Route which is done with React Router Dom.![enter image description here](https://i.imgur.com/XRc3URX.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- There is an option called Forget Password on the logging page. It will be able to recover lost passwords if it has been logged in before. If the email is correct, a link will be sent to the email, with the help of which user will be able to give a new password.![enter image description here](https://i.imgur.com/zGOkeNS.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**2**. **After Login:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The logging system is done with Node Js. To Register in, user have to give name, email, password and picture. Image hosted by Cloudinary. The password encryption in Node.js using bcryptjs module. The user will be able to confirm the order after logging in. Country and State will dynamically come and select when ordering. And Stripe has been added to the payment system.![enter image description here](https://i.imgur.com/UrLuDbF.png)![enter image description here](https://i.imgur.com/lMXn1eE.png)
+  ![enter image description here](https://i.imgur.com/KTgDpgQ.png)
+  ![enter image description here](https://i.imgur.com/4mjIqka.png)
+  ![enter image description here](https://i.imgur.com/5tcSVue.png)
+- There is a page called Account for the user which after logging in can see the help of the menu and its help the user can go to the profile page. From there he can update all his details if he wants. In the menu there is an order page for the user where he can see the complete details of his order.
+  ![enter image description here](https://i.imgur.com/R6KUW9u.png)
 
-### `npm run eject`
+- Users will be able to rating the product after logging in. If the same user gives it twice, the previous one will be removed and the new one will be added and it will be real time show. And the rating will show the average size at 5 stars which is what we usually see on ecommerce site.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**2**. **Login As A Admin:**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Logging in as admin will see many functionality. Logging in as admin will see a dashboard option in the menu. Clicking on the dashboard will take admin to the dashboard page. The user will be able to see the total amount of orders placed on this page in the form of a total amount graph. Chart JS is used to show the graph. You can see how many stocks are there and how many are not.![enter image description here](https://i.imgur.com/lmbJZYj.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- There is an option called products on the dashboard. Clicking here will show the admin all the products. From there the user can update or delete these products if he wants.![enter image description here](https://i.imgur.com/kPlOQwg.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- There is a users option in the admin dashboard. There users will be able to see their roles. If the admin wants, he can make the user an admin. There is a way to update. If admin click there, admin can change the role from the select option. And users can remove if admin want.![enter image description here](https://i.imgur.com/arQWhr1.png)
 
-## Learn More
+- On the left side of the dashboard page, there is a products option. If admin click there, two options will come up. There is an option called Create. From there, users can add products if they want. When adding a product, the user can upload multiple images of the product together if he wants.
+  ![enter image description here](https://i.imgur.com/U08yYV8.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- There is a reviews option in the menu on the left side of the dashboard page. Clicking there will bring a field. If search with the product ID, all the ratings of that product will come. Admin will be able to remove product reviews if desired.![enter image description here](https://i.imgur.com/AemWTwa.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**N.B:** **Please wait a bit (working a little slow to deploy in Heroku. It may take 2-3 minutes to see the site for the first time)**
