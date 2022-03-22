@@ -22,6 +22,7 @@ import Loader from "./component/layout/Loader/Loader";
 import NewProduct from "./component/Admin/NewProduct";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
 import Dashboard from "./component/Admin/Dashboard.js";
+import Shipping from "./component/Cart/Shipping";
 
 const ProductDetails = Loadable({
   loader: () => import("./component/Product/ProductDetails"),
@@ -65,10 +66,6 @@ const ResetPassword = Loadable({
 });
 const Cart = Loadable({
   loader: () => import("./component/Cart/Cart"),
-  loading: () => <Loader />,
-});
-const Shipping = Loadable({
-  loader: () => import("./component/Cart/Shipping"),
   loading: () => <Loader />,
 });
 const Payment = Loadable({
