@@ -113,7 +113,6 @@ function App() {
           isAdmin={true}
           component={NewProduct}
         />
-
         <ProtectedRoute
           exact
           path="/admin/product/:id"
