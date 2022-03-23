@@ -6,7 +6,7 @@ const connectDatabase = () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-      poolSize: 20,
+      poolSize: 1,
     })
     .then((data) => {
       console.log(`Mongodb connected with server: ${data.connection.host}`);
