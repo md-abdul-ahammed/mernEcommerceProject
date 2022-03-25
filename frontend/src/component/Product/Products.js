@@ -24,7 +24,7 @@ const Products = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const [currentPage, setCurrentPage] = useState(1);
-  const [price, setPrice] = useState([0, 25000]);
+  const [price, setPrice] = useState([0, 1200]);
   const [category, setCategory] = useState("");
   const [ratings, setRatings] = useState(0);
   const {
@@ -72,7 +72,7 @@ const Products = ({ match }) => {
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
               min={0}
-              max={25000}
+              max={1200}
             />
             <Typography>Categories</Typography>
             <ul className="categoryBox">
